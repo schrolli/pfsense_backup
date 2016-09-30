@@ -5,4 +5,5 @@
 	"dest_dir": "/var/opt/pfsense_backup",
 	"file_prefix": "pfsense_backup_",
 	"ssl_certs": "/etc/pfsense_backup/ssl_cert.crt",
+	"remove_old_files": true,
 }

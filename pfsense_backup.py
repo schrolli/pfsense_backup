@@ -22,6 +22,7 @@ def main(config, verbose):
 	check.abs_path(conf['dest_dir'],'dest_dir')
 	check.dir_exists(conf['dest_dir'],'dest_dir')
 	check.abs_path(conf['ssl_certs'],'ssl_certs')
+	check.bool_exists(conf, ['remove_old_files'])
 	
 	url = 'https://%s/diag_backup.php' % conf['host']
 	
@@ -65,6 +66,13 @@ def main(config, verbose):
 	file = open(filepath,'w')
 	file.write(page.text)
 	file.close()
+	
+	#remove all other files in the destination-directory
+	if conf['remove_old_files'] == True:
+		files = sorted([s for s in os.listdir(conf['dest_dir']) if conf['file_prefix'].lower() in s.lower()])
+		for file in files:
+			if file != filename:
+				os.remove(os.path.join(conf['dest_dir'],file))
 
 def fetch_csrf_magic(page):
 	tree = html.fromstring(page.content)
