@@ -1,0 +1,7 @@
+{
+	"host": "pfsense.my-company.com",
+	"user": "backup",
+	"password": "5ecR37",
+	"dest_dir": "/var/opt/pfsense_backup",
+	"file_prefix": "pfsense_backup_",
+}
