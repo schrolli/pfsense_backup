@@ -18,14 +18,15 @@ def main(config, verbose):
 	conf = json.loads(json_minify(conf_file.read()))
 	conf_file.close()
 
-	check.exists_not_empty(conf, ['host', 'user', 'password', 'dest_dir', 'file_prefix'])
+	check.exists_not_empty(conf, ['host', 'user', 'password', 'dest_dir', 'file_prefix', 'ssl_certs'])
 	check.abs_path(conf['dest_dir'],'dest_dir')
 	check.dir_exists(conf['dest_dir'],'dest_dir')
+	check.abs_path(conf['ssl_certs'],'ssl_certs')
 	
 	url = 'https://%s/diag_backup.php' % conf['host']
 	
 	session = requests.Session()
-	session.verify = False
+	session.verify = conf['ssl_certs']
 	
 	# request the login-form to get the csrf-magic-token for login submission
 	page = session.get(url)

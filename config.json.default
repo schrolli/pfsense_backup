@@ -4,4 +4,5 @@
 	"password": "5ecR37",
 	"dest_dir": "/var/opt/pfsense_backup",
 	"file_prefix": "pfsense_backup_",
+	"ssl_certs": "/etc/pfsense_backup/ssl_cert.crt",
 }
