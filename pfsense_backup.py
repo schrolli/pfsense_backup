@@ -87,13 +87,14 @@ if __name__=="__main__":
 	import argparse
 	
 	parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter)
-	parser.add_argument("-v", "--verbose", action = "count", default = 0,
-		help =	"increase verbosity for manual run\n"
-			"use multiple times for more verbosity\n"
-			">=1: comments, which step is executing\n"
-			">=2: lvcreate and lvremove stdout and rsync -v\n"
-			">=3: rsync --progress")
+#	parser.add_argument("-v", "--verbose", action = "count", default = 0,
+#		help =	"increase verbosity for manual run\n"
+#			"use multiple times for more verbosity\n"
+#			">=1: comments, which step is executing\n"
+#			">=2: lvcreate and lvremove stdout and rsync -v\n"
+#			">=3: rsync --progress")
 	parser.add_argument("-c", "--config", help = "use specific config-file (default: /etc/pfsense_backup/config.json)", default = "/etc/pfsense_backup/config.json")
 	args = parser.parse_args()
 	
-	main(args.config, args.verbose)
+#	main(args.config, args.verbose)
+	main(args.config, 0)
