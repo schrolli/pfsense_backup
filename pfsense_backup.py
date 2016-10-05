@@ -21,7 +21,8 @@ def main(config, verbose):
 	check.exists_not_empty(conf, ['host', 'user', 'password', 'dest_dir', 'file_prefix', 'ssl_certs'])
 	check.abs_path(conf['dest_dir'],'dest_dir')
 	check.dir_exists(conf['dest_dir'],'dest_dir')
-	check.abs_path(conf['ssl_certs'],'ssl_certs')
+	if (conf['ssl_certs'] != True):
+		check.abs_path(conf['ssl_certs'],'ssl_certs')
 	check.bool_exists(conf, ['remove_old_files'])
 	
 	url = 'https://%s/diag_backup.php' % conf['host']
