@@ -17,7 +17,7 @@ def main(config, verbose):
 	conf_file = open(config,'r')
 	conf = json.loads(json_minify(conf_file.read()))
 	conf_file.close()
-
+	
 	check.exists_not_empty(conf, ['host', 'user', 'password', 'dest_dir', 'file_prefix', 'ssl_certs'])
 	check.abs_path(conf['dest_dir'],'dest_dir')
 	check.dir_exists(conf['dest_dir'],'dest_dir')
