@@ -51,3 +51,8 @@ String. Absolute Filepath. Path to the root-certificate to check the server-cert
 
 #### remove_old_files
 Boolean. If set to ```true```, old files in the ``dest_dir``-folder, which have ```file_prefix``` as a substring, will be deleted after the new backup is saved.
+
+# Todo
+
+* backup rrd as config-option
+* add logging
